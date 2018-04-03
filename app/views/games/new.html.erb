@@ -1,0 +1,21 @@
+<%= form_for @game, url: {action: "create"} do |f| %>
+  <%= f.label :date, 'Date Played' %>
+  <%= f.date_select :date, order: [:month, :day, :year] %>
+  <%= f.label :opponent_id, 'Opponent' %>
+  <%= f.select :opponent_id, @opponent_options %>
+  <%= f.label :your_score, 'Your Score' %>
+  <%= f.number_field :your_score %>
+  <%= f.label :their_score, 'Their Score' %>
+  <%= f.number_field :their_score %>
+
+  <%= f.submit("Log Game") %>
+<% end %>
+
+<form action="/games" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="date" name="game[date_played]">
+    <input type="text" name="game[opponent]">
+    <input type="integer" name="game[your_score]">
+    <input type="integer" name="game[their_score]">
+    <input type="submit" value="Log Game">
+  </form>

@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119003939) do
+ActiveRecord::Schema.define(version: 20180402232801) do
+
+  create_table "games", force: :cascade do |t|
+    t.date    "date",         null: false
+    t.integer "winner_id",    null: false
+    t.integer "loser_id",     null: false
+    t.integer "winner_score", null: false
+    t.integer "loser_score",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
