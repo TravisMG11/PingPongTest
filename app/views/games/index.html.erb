@@ -1,0 +1,6 @@
+
+<% current_user.games.each do |game| %>
+  <li>
+    winner: <%= game.winner.email %> | Score: <%= game.winner_score %> / <%= game.loser_score %>
+  </li>
+<% end %>

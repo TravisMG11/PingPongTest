@@ -1,4 +1,7 @@
 class GamesController < ApplicationController
+  def index
+  end
+
   def new
     @opponent_options = User.where.not(id: current_user.id).collect { |m| [m.email, m.id] }
   end
